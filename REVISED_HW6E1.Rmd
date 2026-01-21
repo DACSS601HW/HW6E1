@@ -1,0 +1,479 @@
+---
+title: An R Markdown document converted from "REVISED_HW6E1.ipynb"
+output: html_document
+---
+
+# **ASSIGN XLS FILES TO OBJECTS, CONSTRUCT DATAFRAMES**
+
+```{r FSI2006, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2006="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2006.xlsx"
+```
+
+```{r PACKAGES, eval=TRUE, echo=TRUE, message=FALSE}
+#checks for required packages, installs them if missing, and then loads them
+if (!require("readxl")) install.packages("readxl")
+if (!require("dplyr")) install.packages("dplyr")
+if (!require("lubridate")) install.packages("lubridate")
+library(readxl)
+library(dplyr)
+library(lubridate)
+```
+
+```{r DIRTY2006, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2006 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2006, temp_file_2006, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2006 <- read_excel(temp_file_2006) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2007, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2007="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2007.xlsx"
+```
+
+```{r DIRTY2007, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2007 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2007, temp_file_2007, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2007 <- read_excel(temp_file_2007) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2008, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2008="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2008.xlsx"
+```
+
+```{r DIRTY2008, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2008 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2008, temp_file_2008, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2008 <- read_excel(temp_file_2008) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2009, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2009="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2009.xlsx"
+```
+
+```{r DIRTY2009, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2009 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2009, temp_file_2009, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2009 <- read_excel(temp_file_2009) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2010, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2010="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2010.xlsx"
+```
+
+```{r DIRTY2010, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2010 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2010, temp_file_2010, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2010 <- read_excel(temp_file_2010) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2011, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2011="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2011.xlsx"
+```
+
+```{r DIRTY2011, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2011 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2011, temp_file_2011, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2011 <- read_excel(temp_file_2011) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2012, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2012="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2012.xlsx"
+```
+
+```{r DIRTY2012, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2012 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2012, temp_file_2012, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2012 <- read_excel(temp_file_2012) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2013, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2013="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2013.xlsx"
+```
+
+```{r DIRTY2013, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2013 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2013, temp_file_2013, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2013 <- read_excel(temp_file_2013) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2014, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2014="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2014.xlsx"
+```
+
+```{r DIRTY2014, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2014 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2014, temp_file_2014, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2014 <- read_excel(temp_file_2014) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2015, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2015="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2015.xlsx"
+```
+
+```{r DIRTY2015, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2015 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2015, temp_file_2015, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2015 <- read_excel(temp_file_2015) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2016, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2016="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2016.xlsx"
+```
+
+```{r DIRTY2016, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2016 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2016, temp_file_2016, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2016 <- read_excel(temp_file_2016) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2017, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2017="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2017.xlsx"
+```
+
+```{r DIRTY2017, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2017 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2017, temp_file_2017, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2017 <- read_excel(temp_file_2017) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2018, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2018="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2018.xlsx"
+```
+
+```{r DIRTY2018, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2018 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2018, temp_file_2018, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2018 <- read_excel(temp_file_2018) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2019, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2019="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2019.xlsx"
+```
+
+```{r DIRTY2019, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2019 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2019, temp_file_2019, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2019 <- read_excel(temp_file_2019) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2020, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2020="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2020.xlsx"
+```
+
+```{r DIRTY2020, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2020 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2020, temp_file_2020, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2020 <- read_excel(temp_file_2020) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2021, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2021="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2021.xlsx"
+```
+
+```{r DIRTY2021, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2021 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2021, temp_file_2021, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2021 <- read_excel(temp_file_2021) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2022, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2022="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2022.xlsx"
+```
+
+```{r DIRTY2022, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2022 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2022, temp_file_2022, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2022 <- read_excel(temp_file_2022) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+```{r FSI2023, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a variable that stores a web address
+FSI2023="https://github.com/DACSS601HW/HW6E1/raw/refs/heads/main/fsi-2023.xlsx"
+```
+
+```{r DIRTY2023, eval=TRUE, echo=TRUE, message=FALSE}
+#creates a temporary file path for an Excel file and stores it in a variable
+temp_file_2023 <- tempfile(fileext = ".xlsx")
+#downloads a file from the internet and saves it locally
+download.file(FSI2023, temp_file_2023, mode = "wb")
+#reads an Excel file into R and starts a data-processing pipeline, assigning the result to a new object
+DIRTY2023 <- read_excel(temp_file_2023) %>%
+# Conditionally convert Year: if it's a large number (Unix timestamp), convert to year; otherwise, keep as is.
+  mutate(Year = case_when(
+    Year > 10000 ~ year(as.POSIXct(Year, origin = "1970-01-01", tz = "UTC")),
+    TRUE ~ as.numeric(Year)
+  ))
+```
+
+# **CONCATENATE DATA FRAMES and FORMAT**
+
+```{r PACKAGES_CONCATENATE_LIST, eval=TRUE, echo=TRUE, message=FALSE}
+#checks for required packages, installs them if missing, and then loads them
+if (!require("dplyr")) install.packages("dplyr")
+if (!require("lubridate")) install.packages("lubridate") # Add lubridate
+library(dplyr)
+library(lubridate)
+
+# Create a list of all DIRTY dataframes
+list_of_dirty_dfs <- list(
+  DIRTY2006, DIRTY2007, DIRTY2008, DIRTY2009, DIRTY2010,
+  DIRTY2011, DIRTY2012, DIRTY2013, DIRTY2014, DIRTY2015,
+  DIRTY2016, DIRTY2017, DIRTY2018, DIRTY2019, DIRTY2020,
+  DIRTY2021, DIRTY2022, DIRTY2023
+)
+
+# Vertically concatenate all dataframes
+FSI_combined_df <- bind_rows(list_of_dirty_dfs)
+
+# Display the first few rows and the dimensions of the combined dataframe
+print(head(FSI_combined_df))
+print(dim(FSI_combined_df))
+```
+
+```{r DISPLAY_INTERNAL_STRUCTURE, eval=TRUE, echo=TRUE, message=FALSE}
+#displays the internal structure of an R object
+str(FSI_combined_df)
+```
+
+```{r REMOVE_COLUMN, eval=TRUE, echo=TRUE, message=FALSE}
+#modifies a data frame by removing 'Change from Previous Year'
+FSI_combined_df <- FSI_combined_df %>%
+  select(-`Change from Previous Year`)
+
+#displays the internal structure of an R object
+str(FSI_combined_df)
+```
+
+```{r RANK_TO_NUMERIC, eval=TRUE, echo=TRUE, message=FALSE}
+#cleans and converts a ranking column into a numeric format
+FSI_combined_df <- FSI_combined_df %>%
+  mutate(Rank = as.integer(gsub("[stndrh]+", "", Rank)))
+
+#displays the internal structure of an R object
+str(FSI_combined_df)
+```
+
+# **BOXPLOTS**
+
+```{r BOXPLOT, eval=TRUE, echo=TRUE, message=FALSE}
+#ensures that the ggplot2 package is installed and then loads it so you can use it for plotting
+if (!require("ggplot2")) install.packages("ggplot2")
+library(ggplot2)
+
+#Initialize the plot
+ggplot(FSI_combined_df, aes(x = as.factor(Year), y = Total)) +
+#Add boxplot
+  geom_boxplot() +
+#Add labels
+  labs(title = "Distribution of Total FSI Score Per Year",
+       x = "Year",
+       y = "Total FSI Score") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+# **Select the Data you want to analyze and Reshape it**
+
+```{r CONDITION_RESHAPE_DATA, eval=TRUE, echo=TRUE, message=FALSE}
+if (!require("tidyr")) install.packages("tidyr")
+library(tidyr)
+
+#Filter FSI_combined_df to include only data from years 2013 and 2023
+fsi_filtered <- FSI_combined_df %>%
+  filter(Year %in% c(2013, 2023))
+
+#Select the 'Year' column and the three specified variables
+fsi_selected <- fsi_filtered %>%
+  select(Year, `C1: Security Apparatus`, `C2: Factionalized Elites`, `C3: Group Grievance`)
+
+#Reshape the fsi_selected DataFrame from wide to long format
+fsi_long <- fsi_selected %>%
+  pivot_longer(
+    cols = c(`C1: Security Apparatus`, `C2: Factionalized Elites`, `C3: Group Grievance`),
+    names_to = "Indicator",
+    values_to = "Score"
+  )
+#Display the first few rows and structure of the new long format dataframe
+print(head(fsi_long))
+print(str(fsi_long))
+```
+
+# **GENERATE HISTOGRAMS**
+
+```{r HISTOGRAMS, eval=TRUE, echo=TRUE, message=FALSE}
+#Initialize the plot
+ggplot(fsi_long, aes(x = Score, fill = as.factor(Year))) +
+#Draw Histograms
+  geom_histogram(binwidth = 0.5, color = "black") +
+#Facet the plot
+  facet_grid(Indicator ~ Year, scales = "free_y") +
+#Adds labels
+  labs(title = "Distribution of Selected Indicators by Year",
+       x = "Score",
+       y = "Frequency",
+       fill = "Year") +
+  theme_minimal()
+```
+
+```{r SAVE_CSV_RDS, eval=TRUE, echo=TRUE, message=FALSE}
+# Save FSI_combined_df as a CSV file
+write.csv(FSI_combined_df, "FSI_combined_df.csv", row.names = FALSE)
+
+# Save FSI_combined_df as an RDS file
+saveRDS(FSI_combined_df, "FSI_combined_df.rds")
+
+print("FSI_combined_df saved as 'FSI_combined_df.csv' and 'FSI_combined_df.rds'")
+```
+
